@@ -49,7 +49,8 @@ fetch(url,{method:’get’})
     
     return response.json()
 
-}).then(function(data){
+})
+.then(function(data){
 	
     console.log(data)
 
@@ -63,7 +64,7 @@ fetch(url,{method:’get’})
 
 ## jQuery函式庫
 jQuery最早只是重新包裝XMLHttpRequest的使用方法，推出比較容易操作的自訂函式供使用，不過後來也自行加入了延遲的概念，讓非同步的事件可以更容易的進行管理。
-
+[官方網站](https://jquery.com/)
 CDN：`https://code.jquery.com/`
 
 語法：
@@ -92,8 +93,8 @@ $(selector).load(url)
 
 ## axios函式庫
 axios是一個基於Promise標準而建立的非同步請求函式庫，除了提供簡便的語法操作外，由於axios只專注在非同步的請求上，因此整個函式庫相較jQuery小很多，也因此成為許多框架或是不想使用jQuery的使用者喜歡。
-
-CDN：`https://cdnjs.com/libraries/axios`
+[官方網站](https://axios-http.com/docs/intro)
+CDN：`https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js`
 
 語法：
 ```javascript
