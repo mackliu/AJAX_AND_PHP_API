@@ -40,7 +40,7 @@ xhr.send(context);
 
 ## Fetch
 在2015年時推出，由主流的幾家瀏灠器所支援，包括Firefox與Chrome、Opera等，IE也宣布在後續的版本會支援Fetch，Fetch的最大特色是引入了Promise的概念，同時透過鏈式呼叫來改善語法結構。
-
+[MDN介紹](https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API)
 語法：
 ```javascript
 //建立請求
