@@ -13,27 +13,44 @@ HTML原生就有XMLHttpRequest的方法可以用來實踐非同步的功能，�
 ## XMLHttpRequest
 XMLHttpRequest在2006年正式被W3C列入標準，也是目前所有瀏灠器都有支援的標準。
 
-語法：
+語法格式：
 ```javascript
 //宣告XHR物件
 var xhr=new XMLHttpRequest
 
 //建立設定
 xhr.open(
-    Method,
+    Method, //get,post,put,patch,delete
     URL,
     async);
 
+//傳送資料-表單
+xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+
+//傳送資料-json
+xhr.setRequestHeader("Content-Type","application/json")
+
 //處理回應
 xhr.onload=function(){  
-    var type=xhr.getResponseHeader(“Content-Type”);
+    var type=xhr.getResponseHeader("Content-Type");
     var status=xhr.status
     var response=xhr.responseText
     document.write(response)
 }
 
 //執行請求及傳送內容
+//表單資料
+let context="name=john&age=32";
+
+//json資料
+let context=JSON.stringify({name:'john',age:32})
+
+//執行ajax請求
+//有傳送資料或post時
 xhr.send(context);
+
+//只是請求資料時
+xhr.send();
 
 ```
 ---
@@ -44,13 +61,24 @@ xhr.send(context);
 語法：
 ```javascript
 //建立請求
-fetch(url,{method:’get’})
+//使用表單資料傳送
+let body="name=mack&age=32";
+//headers={'Content-Type':'application/x-www-form-urlencoded'}
+//使用json傳送
+let body=JSON.stringify({name:'mack',age:32});
+//headers={'Content-Type':'application/json'}
+
+fetch(url,{method,body,headers:{'Content-Type':'application/x-www-form-urlencoded'}})
 .then(function(response){
     
+    //回傳是josn時
     return response.json()
+    
+    //回傳是text時
+    return response.text()
 
 })
-.then(function(data){
+.then(function(data){ 
 	
     console.log(data)
 
